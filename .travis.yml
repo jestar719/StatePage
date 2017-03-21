@@ -12,7 +12,7 @@ android:
  cache:
    directories:
    - "$HOME/.gradle"
-   before_install:
+before_install:
    - chmod +x gradlew
 script:
   - "./gradlew assembleRelease"
