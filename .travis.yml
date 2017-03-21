@@ -9,7 +9,7 @@ android:
   - android-25
   - extra-android-m2repository
   - extra-android-support
-
+jdk: oraclejdk8
 cache:
    directories:
    - "$HOME/.gradle"
