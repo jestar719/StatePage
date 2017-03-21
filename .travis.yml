@@ -20,7 +20,7 @@ before_install:
 script:
   - "./gradlew assembleRelease"
 
-  deploy:
+deploy:
     provider: releases
     api_key:
       secure: affd4f8ae3500a6ba3deb5bcbfc740f538603f6f
