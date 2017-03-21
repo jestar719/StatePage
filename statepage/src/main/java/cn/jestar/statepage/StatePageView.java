@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 
 /**
+ * 自定义控件,用与切换状态.
  * Created by jestar on 17-3-9.
  */
 
@@ -20,8 +21,8 @@ public class StatePageView extends FrameLayout {
         super(context, attrs);
         mStateSparseArray = new SparseArray<>(4);
         mCurrentState = new DefaultState();
-        addState(new DefaultStateImpl(IState.STATE_LOADING, R.layout.layout_default_state_loading))
-                .addState(mCurrentState);
+        DefaultStateImpl defaultState = new DefaultStateImpl(IState.STATE_LOADING, R.layout.layout_default_state_loading);
+        addState(defaultState).addState(mCurrentState);
     }
 
     public StatePageView(@NonNull Context context) {

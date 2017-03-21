@@ -23,8 +23,7 @@ script:
 
 deploy:
     provider: releases
-    api_key:
-      secure: affd4f8ae3500a6ba3deb5bcbfc740f538603f6f
+    api_key: affd4f8ae3500a6ba3deb5bcbfc740f538603f6f
    file: statepage\build\outputs\aar\statepage-release.aar
     skip_cleanup: true
     on:
