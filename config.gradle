@@ -1,0 +1,9 @@
+ext {
+    cSdk = 25
+    bSdk = '25.0.2'
+    mSdk = 17
+    tSdk = 25
+    vCode = 100
+    vName = '1.0.0'
+
+}
