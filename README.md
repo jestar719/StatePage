@@ -15,7 +15,7 @@ allprojects {
 在Module中添加依赖
 ```java
 dependencies {
-		compile "com.github.jestar719:StatePage:1.0.3"
+		compile "com.github.jestar719:StatePage:1.0.4"
 	}
 ```
 
