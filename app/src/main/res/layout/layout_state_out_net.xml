@@ -13,12 +13,10 @@
 
     <Button
         android:id="@+id/btn_retry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/style_btn"
         android:layout_below="@+id/iv_out_of_net"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:padding="16dp"
         android:text="@string/out_of_net"/>
 
 

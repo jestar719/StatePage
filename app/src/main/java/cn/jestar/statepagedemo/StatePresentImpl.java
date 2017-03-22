@@ -57,7 +57,7 @@ public class StatePresentImpl implements StateContact.StatePresent {
                 mCurrentPage = mRequestModel.getPage();
             }
         };
-        ;
+
         private Consumer<Throwable> mErrorConsumer = new Consumer<Throwable>() {
             @Override
             public void accept(@NonNull Throwable throwable) throws Exception {
@@ -76,11 +76,16 @@ public class StatePresentImpl implements StateContact.StatePresent {
             boolean isOutOfNet = new Random().nextBoolean();
             if (isOutOfNet) {
                 isError = false;
-                Observable<List<String>> date = Observable.error(new RuntimeException(String.valueOf(IState.STATE_OUT_NET)));
+                Observable<List<String>> date = Observable.error(getException(IState.STATE_OUT_NET));
                 mDisposable = date.subscribe(mDateConsumer, mErrorConsumer);
             } else {
                 getDate();
             }
+        }
+
+        @android.support.annotation.NonNull
+        private RuntimeException getException(int state) {
+            return new RuntimeException(String.valueOf(state));
         }
 
         @Override
@@ -100,6 +105,7 @@ public class StatePresentImpl implements StateContact.StatePresent {
                         public List<String> apply(@NonNull List<String> strings) throws Exception {
                             if (isError) {
                                 isError = false;
+                                throw getException(IState.STATE_ERROR);
                             }
                             return strings;
                         }

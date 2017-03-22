@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.jestar.statepagedemo.XmlActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:id="@+id/btn_loading"
+            style="@style/style_btn"
+            android:layout_centerInParent="true"
+            android:onClick="onBtnClick"
+            android:text="@string/state_loading"
+            />
+
+        <Button
+            android:id="@+id/btn_error"
+            style="@style/style_btn"
+            android:layout_below="@+id/btn_loading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:onClick="onBtnClick"
+            android:text="@string/state_error"
+            />
+
+        <Button
+            android:id="@+id/btn_out_of_net"
+            style="@style/style_btn"
+            android:layout_above="@+id/btn_loading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:onClick="onBtnClick"
+            android:text="@string/state_out_net"
+            />
+    </RelativeLayout>
+
+    <cn.jestar.statepage.StatePageView
+        android:id="@+id/state_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:state_error="@layout/layout_state_error"
+        app:state_loading="@layout/layout_default_state_loading"
+        />
+</FrameLayout>

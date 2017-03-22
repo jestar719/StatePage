@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin:'im.fir.plugin.gradle'
-fir{
-apiToken System.getenv("FIR_TOKEN")}
+apply plugin: 'im.fir.plugin.gradle'
+fir {
+    apiToken System.getenv("FIR_TOKEN")
+}
 
 android {
     compileSdkVersion cSdk
@@ -32,4 +33,5 @@ dependencies {
     compile dep.cardView
     compile dep.rxjava2
     compile dep.rxandroid2
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

@@ -25,7 +25,7 @@ class DateRepository {
                     public List<String> apply(@NonNull RequestModel request) throws Exception {
                         List<String> list = new ArrayList<>(ITEM_COUNT);
                         for (int i = 1; i <= ITEM_COUNT; i++) {
-                            list.add(String.format("PAGE %s-%s", request.getTab(), i));
+                            list.add(String.format("PAGE %s-%s", request.getTab(), request.getPage() * 10 + i));
                         }
                         return list;
                     }
