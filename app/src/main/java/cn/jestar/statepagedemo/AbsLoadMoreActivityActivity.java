@@ -10,11 +10,10 @@ import android.support.v7.widget.RecyclerView.OnScrollListener;
 
 import cn.jestar.statepage.StatePageView;
 
-public abstract class BaseActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
+public abstract class AbsLoadMoreActivityActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     protected RecyclerView mRecyclerView;
     protected SwipeRefreshLayout mRefreshLayout;
     protected StatePageView mStatePageView;
-    protected TextAdapter mAdapter;
     private LinearLayoutManager mLayoutManager;
     private boolean isLoading;
 
@@ -36,8 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity implements SwipeRef
         mRefreshLayout.setOnRefreshListener(this);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new TextAdapter();
-        mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(new OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {

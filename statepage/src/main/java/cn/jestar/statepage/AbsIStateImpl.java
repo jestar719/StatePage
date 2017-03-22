@@ -22,7 +22,7 @@ public abstract class AbsIStateImpl implements IState {
         mLayout = layout;
     }
     @Override
-    public void initView(@NonNull ViewGroup parent) {
+    public final void initView(@NonNull ViewGroup parent) {
         createView(parent);
         handleView();
         parent.addView(mView);

@@ -10,8 +10,8 @@ import java.util.List;
 import cn.jestar.statepage.IState;
 import cn.jestar.statepage.StatePageView;
 
-public class CustomInitActivity extends BaseActivity implements StateContact.StateView {
-
+public class CustomInitActivity extends AbsLoadMoreActivityActivity implements StateContact.StateView {
+    private TextAdapter mAdapter;
     private StateContact.StatePresent mPresent;
     private String mCurrentTab;
     private String[] mTabs;
@@ -21,6 +21,8 @@ public class CustomInitActivity extends BaseActivity implements StateContact.Sta
         super.onCreate(savedInstanceState);
         mPresent = new StatePresentImpl();
         mPresent.bindView(this);
+        mAdapter = new TextAdapter();
+        mRecyclerView.setAdapter(mAdapter);
         initTab();
     }
 
@@ -68,7 +70,8 @@ public class CustomInitActivity extends BaseActivity implements StateContact.Sta
                 mPresent.retry();
             }
         };
-        mStatePageView.addState(new ErrorState(listener)).addState(new NoNetState(listener));
+        mStatePageView.addState(new ErrorState(listener))
+                .addState(new NoNetState(listener));
         ((ViewGroup) getWindow().getDecorView()).addView(mStatePageView);
     }
 
